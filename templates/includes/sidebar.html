@@ -13,7 +13,7 @@
         <a class="nav-link" href="{% url 'kitchen:dish-type-list' %}">Dishes types</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Dishes</a>
+        <a class="nav-link" href="{% url 'kitchen:dish-list' %}">Dishes</a>
       </li>
     </ul>
       {% if user.is_authenticated %}

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{#{% load crispy_forms_filters %}#}
+
+{% block content %}
+  <h1>
+    Dishes
+    <a href="{% url 'kitchen:dish-create' %}" class="btn btn-primary link-to-page">
+      Create
+    </a>
+  </h1>
+{#  <form action="" method="get" class="form-inline">#}
+{#    {{ dishes_types_search_form|crispy }}&nbsp;#}
+{#    <input type="submit" class="btn btn-secondary" value="Search">#}
+{#  </form>#}
+{#  <br>#}
+  {% if dish_list %}
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+
+      {% for dish in dish_list %}
+        <tr>
+          <td>
+              {{ dish.id }}
+          </td>
+          <td>
+              {{ dish.name }}
+          </td>
+          <td>
+              <a href="{% url 'kitchen:dish-update' pk=dish.id %}">
+                Update
+              </a>
+            </td>
+            <td>
+              <a style="color: red"
+                href="{% url 'kitchen:dish-delete' pk=dish.id %}">
+                Delete
+              </a>
+            </td>
+        </tr>
+      {% endfor %}
+    </table>
+
+  {% else %}
+      <p>There are no dishes in the service.</p>
+  {% endif %}
+{% endblock %}
