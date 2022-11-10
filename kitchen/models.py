@@ -6,6 +6,10 @@ from django.contrib.auth.models import AbstractUser
 class Cook(AbstractUser):
     years_of_experience = models.IntegerField(null=True)
 
+    class Meta:
+        verbose_name = "cook"
+        verbose_name_plural = "cooks"
+
     def __str__(self):
         return f"{self.first_name} {self.last_name} ({self.years_of_experience} YOE)"
 
