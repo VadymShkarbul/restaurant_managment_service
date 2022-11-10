@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">ORMS</a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'kitchen:index' %}">Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Cooks</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Dishes types</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Dishes</a>
+      </li>
+    </ul>
+      {% if user.is_authenticated %}
+        <div class="form-inline my-2 my-lg-0">
+          <a href="{{ user.get_absolute_url }}" class="mr-sm-2">{{ user.get_username }}</a>
+          <a href="{% url 'logout' %}?next={{request.path}}" class="btn btn-outline-success my-2 my-sm-0">Logout</a>
+        </div>
+      {% else %}
+        <a href="{% url 'login' %}?next={{request.path}}" class="btn btn-outline-success my-2 my-sm-0">Login</a>
+      {% endif %}
+
+  </div>
+</nav>
