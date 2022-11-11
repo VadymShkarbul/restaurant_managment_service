@@ -8,6 +8,7 @@
     {{ form|crispy }}
 
     <input type="submit" value="{{ object|yesno:"Update,Create" }}" class="btn btn-outline-success">
-    <input type="reset" value="Cancel" class="btn btn-outline-danger" onclick="history.back()">
+     <a type="reset" class="btn btn-outline-danger" href="{% url 'kitchen:dish-detail' pk=dish.id %}">Cancel</a>
   </form>
+  <p></p>
 {% endblock %}

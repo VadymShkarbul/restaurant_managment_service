@@ -1,11 +1,27 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <p>Now we have:</p>
-    <ul>
-        <li><strong>Cooks:</strong> {{ num_cooks }}</li>
-        <li><strong>Dishes types:</strong> {{ num_dish_type }}</li>
-        <li><strong>Dishes:</strong> {{ num_dish }}</li>
-    </ul>
+    <table>
+      <tr>
+        <td colspan="3"><p>Now we have:</p></td>
+      </tr>
+      <tr>
+        <td>
+          <a style="size: B4" href="{% url 'kitchen:cook-list' %}" class="btn btn-primary">
+            Cooks <span class="badge badge-light">{{ num_cooks }}</span>
+          </a>
+        </td>
+        <td>
+          <a href="{% url 'kitchen:dish-type-list' %}" class="btn btn-primary">
+            Dish Types <span class="badge badge-light">{{ num_dish_type }}</span>
+          </a>
+        </td>
+        <td>
+          <a href="{% url 'kitchen:dish-list' %}" class="btn btn-primary">
+            Dishes <span class="badge badge-light">{{ num_dish }}</span>
+          </a>
+        </td>
+      </tr>
+    </table>
 
 {% endblock %}
