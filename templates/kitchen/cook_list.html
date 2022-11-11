@@ -5,10 +5,11 @@
     <p><h2>Our cooks list:
       <a href="{% url 'kitchen:cook-create' %}" class="btn btn-outline-secondary float-right">Add new cook</a>
     </h2></p>
-{#    <form action="" method="get" class="form-inline">#}
-{#      {{ cooks_search_form|crispy }}&nbsp;#}
-{#      <input type="submit" class="btn btn-secondary" value="Search">#}
-{#    </form>#}
+    <form action="" method="get" class="form-inline">
+      {{ cooks_search_form|crispy }}&nbsp;
+      <input type="submit" class="btn btn-secondary" value="Search">
+    </form>
+    <br>
     {% if cook_list %}
     <table class="table">
       <tr>

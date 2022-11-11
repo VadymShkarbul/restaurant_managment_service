@@ -1,15 +1,15 @@
 {% extends "base.html" %}
-{#{% load crispy_forms_filters %}#}
+{% load crispy_forms_filters %}
 
 {% block content %}
   <p><h2>Our dish list:
       <a href="{% url 'kitchen:dish-create' %}" class="btn btn-outline-secondary float-right">Add new dish</a>
   </h2></p>
-{#  <form action="" method="get" class="form-inline">#}
-{#    {{ dishes_types_search_form|crispy }}&nbsp;#}
-{#    <input type="submit" class="btn btn-secondary" value="Search">#}
-{#  </form>#}
-{#  <br>#}
+  <form action="" method="get" class="form-inline">
+    {{ dishes_search_form|crispy }}&nbsp;
+    <input type="submit" class="btn btn-secondary" value="Search">
+  </form>
+  <br>
   {% if dish_list %}
     <table class="table">
       <tr>

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{#{% load crispy_forms_filters %}#}
+{% load crispy_forms_filters %}
 
 {% block content %}
 
@@ -9,12 +9,11 @@
       </a>
       </h2></p>
 
-
-{#  <form action="" method="get" class="form-inline">#}
-{#    {{ dishes_types_search_form|crispy }}&nbsp;#}
-{#    <input type="submit" class="btn btn-secondary" value="Search">#}
-{#  </form>#}
-{#  <br>#}
+  <form action="" method="get" class="form-inline">
+    {{ dishes_types_search_form|crispy }}&nbsp;
+    <input type="submit" class="btn btn-secondary" value="Search">
+  </form>
+  <br>
   {% if dishes_types_list %}
     <table class="table">
       <tr>
