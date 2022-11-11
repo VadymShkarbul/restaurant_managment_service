@@ -9,6 +9,7 @@ class Cook(AbstractUser):
     class Meta:
         verbose_name = "cook"
         verbose_name_plural = "cooks"
+        ordering = ["username"]
 
     def __str__(self):
         return f"{self.first_name} {self.last_name} ({self.years_of_experience} YOE)"
@@ -23,6 +24,7 @@ class DishType(models.Model):
     class Meta:
         verbose_name = "dish type"
         verbose_name_plural = "dishes types"
+        ordering = ["name"]
 
     def __str__(self):
         return self.name
@@ -38,6 +40,7 @@ class Dish(models.Model):
     class Meta:
         verbose_name = "dish"
         verbose_name_plural = "dishes"
+        ordering = ["name"]
 
     def __str__(self):
         return f"{self.name} ({self.price})"
