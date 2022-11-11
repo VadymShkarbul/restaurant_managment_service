@@ -2,12 +2,9 @@
 {#{% load crispy_forms_filters %}#}
 
 {% block content %}
-  <h1>
-    Dishes
-    <a href="{% url 'kitchen:dish-create' %}" class="btn btn-primary link-to-page">
-      Create
-    </a>
-  </h1>
+  <p><h2>Our dish list:
+      <a href="{% url 'kitchen:dish-type-create' %}" class="btn btn-outline-secondary float-right">Add new dish</a>
+  </h2></p>
 {#  <form action="" method="get" class="form-inline">#}
 {#    {{ dishes_types_search_form|crispy }}&nbsp;#}
 {#    <input type="submit" class="btn btn-secondary" value="Search">#}
@@ -31,12 +28,13 @@
               <a href="{% url 'kitchen:dish-detail' pk=dish.id %}">{{ dish.name }}</a>
           </td>
           <td>
-              <a href="{% url 'kitchen:dish-update' pk=dish.id %}">
+              <a class="btn btn-sm btn-outline-info"
+                 href="{% url 'kitchen:dish-update' pk=dish.id %}">
                 Update
               </a>
             </td>
             <td>
-              <a style="color: red"
+              <a class="btn btn-sm btn btn-outline-danger"
                 href="{% url 'kitchen:dish-delete' pk=dish.id %}">
                 Delete
               </a>

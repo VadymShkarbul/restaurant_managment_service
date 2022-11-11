@@ -2,17 +2,13 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
-    <h1>
-      cook List
-      <a href="{% url 'kitchen:cook-create' %}" class="btn btn-primary link-to-page">
-        Create
-      </a>
-    </h1>
+    <p><h2>Our cooks list:
+      <a href="{% url 'kitchen:dish-type-create' %}" class="btn btn-outline-secondary float-right">Add new cook</a>
+    </h2></p>
 {#    <form action="" method="get" class="form-inline">#}
 {#      {{ cooks_search_form|crispy }}&nbsp;#}
 {#      <input type="submit" class="btn btn-secondary" value="Search">#}
 {#    </form>#}
-    <br>
     {% if cook_list %}
     <table class="table">
       <tr>

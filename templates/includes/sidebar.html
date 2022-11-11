@@ -18,7 +18,7 @@
     </ul>
       {% if user.is_authenticated %}
         <div class="form-inline my-2 my-lg-0">
-          <a href="{{ user.get_absolute_url }}" class="mr-sm-2">{{ user.get_username }}</a>
+          Welcome,&nbsp<a href="{{ user.get_absolute_url }}" class="mr-sm-2">{{ user.get_username }}</a>
           <a href="{% url 'logout' %}?next={{request.path}}" class="btn btn-outline-success my-2 my-sm-0">Logout</a>
         </div>
       {% else %}

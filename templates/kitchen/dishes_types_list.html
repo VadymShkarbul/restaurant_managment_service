@@ -2,12 +2,14 @@
 {#{% load crispy_forms_filters %}#}
 
 {% block content %}
-  <h1>
-    DishType List
-    <a href="{% url 'kitchen:dish-type-create' %}" class="btn btn-primary link-to-page">
-      Create
-    </a>
-  </h1>
+
+      <p><h2>Our dishes types list:
+      <a href="{% url 'kitchen:dish-type-create' %}" class="btn btn-outline-secondary float-right">
+        Create new dish type
+      </a>
+      </h2></p>
+
+
 {#  <form action="" method="get" class="form-inline">#}
 {#    {{ dishes_types_search_form|crispy }}&nbsp;#}
 {#    <input type="submit" class="btn btn-secondary" value="Search">#}
@@ -31,12 +33,13 @@
               {{ dt.name }}
           </td>
           <td>
-              <a href="{% url 'kitchen:dish-type-update' pk=dt.id %}">
+              <a class="btn btn-sm btn-outline-info"
+                 href="{% url 'kitchen:dish-type-update' pk=dt.id %}">
                 Update
               </a>
             </td>
             <td>
-              <a style="color: red"
+              <a class="btn btn-sm btn btn-outline-danger"
                 href="{% url 'kitchen:dish-type-delete' pk=dt.id %}">
                 Delete
               </a>
@@ -46,6 +49,6 @@
     </table>
 
   {% else %}
-      <p>There are no DishTypes in the service.</p>
+      <p>There are no DishTypes in the service</p>
   {% endif %}
 {% endblock %}
