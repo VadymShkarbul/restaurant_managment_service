@@ -3,13 +3,7 @@
 {% block content %}
   <h1>
     Username: {{ cook.username }}
-    <a href="{% url 'kitchen:cook-delete' pk=cook.id %}" class="btn btn-outline-danger">
-      Delete
-    </a>
 
-    <a href="{% url 'kitchen:cook-update' pk=cook.id %}" class="btn btn-outline-success">
-      Update
-    </a>
   </h1>
 
 
@@ -31,4 +25,8 @@
       <p>No dishes!</p>
     {% endfor %}
   </div>
+  <a href="{% url 'kitchen:cook-update' pk=cook.id %}"
+     class="btn btn-outline-success">Update</a>
+  <a href="{% url 'kitchen:cook-delete' pk=cook.id %}"
+     class="btn btn-outline-danger">Delete</a>
 {% endblock %}
