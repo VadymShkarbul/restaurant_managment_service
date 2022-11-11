@@ -1,7 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h2>{{ dish.name }} ({{ dish.dish_type.name }})</h2>
+  <h2>
+    {{ dish.name }} ({{ dish.dish_type.name }})
+    {% if dish in user.dishes.all %}
+      <a href="{% url 'kitchen:add_remove_dish' pk=dish.id %}" class="btn btn-outline-danger">
+        Delete me from this dish
+      </a>
+    {% else %}
+      <a href="{% url 'kitchen:add_remove_dish' pk=dish.id %}" class="btn btn-outline-success">
+        Assign me from this dish
+      </a>
+    {% endif %}
+  </h2>
   <p>{{ dish.description }}</p>
   <h4>
     Cooks
@@ -10,9 +21,9 @@
   <ul>
     {% for cook in dish.cooks.all %}
       <li>{{ cook.username }} ({{ cook.first_name }} {{ cook.last_name }})</li>
-       <hr>
     {% endfor %}
   </ul>
+  <hr>
   <a href="{% url 'kitchen:dish-update' pk=dish.id %}"
      class="btn btn-outline-success">Update</a>
   <a href="{% url 'kitchen:dish-delete' pk=dish.id %}"
