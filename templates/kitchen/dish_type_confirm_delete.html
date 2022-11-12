@@ -2,10 +2,16 @@
 
 {% block content %}
   <h1>Delete {{ dishtype.name }}?</h1>
-  <form action="" method="post">
+  <form action=""
+        method="post">
     {% csrf_token %}
 
-    <input type="submit" value="Yes" class="btn btn-outline-success">
-    <input type="reset" value="No!" class="btn btn-outline-danger" onclick="history.back()">
+    <input type="submit"
+           value="Yes"
+           class="btn btn-outline-success">
+    <input type="reset"
+           value="No!"
+           class="btn btn-outline-danger"
+           onclick="history.back()">
   </form>
 {% endblock %}

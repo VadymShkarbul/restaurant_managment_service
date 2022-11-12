@@ -1,29 +1,51 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">ORMS</a>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="{% url 'kitchen:index' %}">Home<span class="sr-only">(current)</span></a>
+<nav class="navbar navbar-expand">
+  <div class="collapse navbar-collapse">
+    <ul class="nav nav-tabs mr-auto">
+      <li class="nav-item">
+        <a id="main"
+           class="nav-link"
+           href="{% url 'kitchen:index' %}">Main</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'kitchen:cook-list' %}">Cooks</a>
+        <a id="dishes_types"
+           class="nav-link"
+           href="{% url 'kitchen:dish-type-list' %}">Dishes Types</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'kitchen:dish-type-list' %}">Dishes types</a>
+        <a id="dishes"
+           class="nav-link"
+           href="{% url 'kitchen:dish-list' %}">Dishes</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'kitchen:dish-list' %}">Dishes</a>
+        <a id="cooks"
+           class="nav-link"
+           href="{% url 'kitchen:cook-list' %}">Cook</a>
       </li>
     </ul>
-      {% if user.is_authenticated %}
-        <div class="form-inline my-2 my-lg-0">
-          Welcome,&nbsp<a href="{{ user.get_absolute_url }}" class="mr-sm-2">{{ user.get_username }}</a>
-          <a href="{% url 'logout' %}?next={{request.path}}" class="btn btn-outline-success my-2 my-sm-0">Logout</a>
-        </div>
-      {% else %}
-        <a href="{% url 'login' %}?next={{request.path}}" class="btn btn-outline-success my-2 my-sm-0">Login</a>
-      {% endif %}
+
+    {% if user.is_authenticated %}
+      <div class="form-inline my-2 my-lg-0">
+        Welcome,&nbsp<a href="{{ user.get_absolute_url }}"
+                        class="mr-sm-2">{{ user.get_username }}</a>
+        <a href="{% url 'logout' %}?next={{ request.path }}"
+           class="btn btn-outline-success my-2 my-sm-0">Logout</a>
+      </div>
+    {% else %}
+      <a href="{% url 'login' %}?next={{ request.path }}"
+         class="btn btn-outline-success my-2 my-sm-0">Login</a>
+    {% endif %}
 
   </div>
 </nav>
+
+
+<script type="text/javascript">
+    function setActive() {
+        let location = window.location;
+        let path = location.pathname.replaceAll("/", "");
+
+        document.querySelector("#" + path).className += " active";
+    }
+
+    setActive();
+</script>

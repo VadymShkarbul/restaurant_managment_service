@@ -3,11 +3,16 @@
 
 {% block content %}
   <p><h2>Our dish list:
-      <a href="{% url 'kitchen:dish-create' %}" class="btn btn-outline-secondary float-right">Add new dish</a>
-  </h2></p>
-  <form action="" method="get" class="form-inline">
+  <a href="{% url 'kitchen:dish-create' %}"
+     class="btn btn-outline-secondary float-right">Add new dish</a>
+</h2></p>
+  <form action=""
+        method="get"
+        class="form-inline">
     {{ dishes_search_form|crispy }}&nbsp;
-    <input type="submit" class="btn btn-secondary" value="Search">
+    <input type="submit"
+           class="btn btn-secondary"
+           value="Search">
   </form>
   <br>
   {% if dish_list %}
@@ -22,28 +27,28 @@
       {% for dish in dish_list %}
         <tr>
           <td>
-              {{ dish.id }}
+            {{ dish.id }}
           </td>
           <td>
-              <a href="{% url 'kitchen:dish-detail' pk=dish.id %}">{{ dish.name }}</a>
+            <a href="{% url 'kitchen:dish-detail' pk=dish.id %}">{{ dish.name }}</a>
           </td>
           <td>
-              <a class="btn btn-sm btn-outline-info"
-                 href="{% url 'kitchen:dish-update' pk=dish.id %}">
-                Update
-              </a>
-            </td>
-            <td>
-              <a class="btn btn-sm btn btn-outline-danger"
-                href="{% url 'kitchen:dish-delete' pk=dish.id %}">
-                Delete
-              </a>
-            </td>
+            <a class="btn btn-sm btn-outline-info"
+               href="{% url 'kitchen:dish-update' pk=dish.id %}">
+              Update
+            </a>
+          </td>
+          <td>
+            <a class="btn btn-sm btn btn-outline-danger"
+               href="{% url 'kitchen:dish-delete' pk=dish.id %}">
+              Delete
+            </a>
+          </td>
         </tr>
       {% endfor %}
     </table>
 
   {% else %}
-      <p>There are no dishes in the service.</p>
+    <p>There are no dishes in the service.</p>
   {% endif %}
 {% endblock %}

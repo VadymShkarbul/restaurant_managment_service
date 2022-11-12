@@ -1,30 +1,31 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>
-    Username: {{ cook.username }}
+  <h2>
+    {{ cook.first_name }} {{ cook.last_name }}
+  </h2>
 
-  </h1>
-
-
-  <p><strong>First name:</strong> {{ cook.first_name }}</p>
-  <p><strong>Last name:</strong> {{ cook.last_name }}</p>
-  <p><strong>Years of experience:</strong> {{ cook.years_of_experience }}</p>
-  <p><strong>Is staff:</strong> {{ cook.is_staff }}</p>
+  <div>
+    <strong>Username:</strong> {{ cook.username }}
+    <p><strong>Experience:</strong> {{ cook.years_of_experience }} year{{ cook.years_of_experience|pluralize }}</p>
+  </div>
 
   <div class="ml-3">
-    <h4>Dishes</h4>
+    <h4>Responsible for cooking: </h4>
 
     {% for dish in cook.dishes.all %}
-        <hr>
-        <p><strong>Dish name:</strong> {{ dish.name }}</p>
-        <p><strong>Dish Type:</strong> {{ dish.dish_type.name }}</p>
-        <p class="text-muted"><strong>Id:</strong> {{dish.id}}</p>
+      <hr>
+      <p>
+        <a href="{% url 'kitchen:dish-detail' pk=dish.id %}">
+          {{ dish.name }} ({{ dish.dish_type.name }})
+        </a>
+      </p>
 
     {% empty %}
       <p>No dishes!</p>
     {% endfor %}
   </div>
+  <hr>
   <a href="{% url 'kitchen:cook-update' pk=cook.id %}"
      class="btn btn-outline-success">Update</a>
   <a href="{% url 'kitchen:cook-delete' pk=cook.id %}"
