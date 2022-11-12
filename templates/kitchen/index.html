@@ -1,31 +1,21 @@
 {% extends "base.html" %}
 
+% extends "base.html" %}
+
 {% block content %}
-  <table>
-    <tr>
-      <td colspan="3"><p>Now we have:</p></td>
-    </tr>
-    <tr>
-      <td>
-        <a style="size: B4"
-           href="{% url 'kitchen:cook-list' %}"
-           class="btn btn-primary">
-          Cooks <span class="badge badge-light">{{ num_cooks }}</span>
-        </a>
-      </td>
-      <td>
-        <a href="{% url 'kitchen:dish-type-list' %}"
-           class="btn btn-primary">
-          Dish Types <span class="badge badge-light">{{ num_dish_type }}</span>
-        </a>
-      </td>
-      <td>
-        <a href="{% url 'kitchen:dish-list' %}"
-           class="btn btn-primary">
-          Dishes <span class="badge badge-light">{{ num_dish }}</span>
-        </a>
-      </td>
-    </tr>
-  </table>
+  <h1>Kitchen Management System</h1>
+  <p>Is a part of restaurant management system which helps
+    distribute the dishes preparation between cooks</p>
+  <h2>Dynamic content</h2>
+  <p>Kitchen Management System has the following record counts:</p>
+  <ul>
+    <li><strong><a href="{% url 'kitchen:dish-type-list' %}">Dishes Types:</a> {{ num_dish_type }}</strong></li>
+    <li><strong><a href="{% url 'kitchen:dish-list' %}">Dishes:</a> {{ num_dish }}</strong></li>
+    <li><strong><a href="{% url 'kitchen:cook-list' %}">Cook:</a> {{ num_cooks }}</strong></li>
+  </ul>
+
+  <p>You have visited this page
+    {{ num_visits }} time{{ num_visits|pluralize }}.
+  </p>
 
 {% endblock %}
