@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <p><h2>Our cooks list:
+  <a href="{% url 'kitchen:cook-create' %}"
+     class="btn btn-outline-secondary float-right">Add new cook</a>
+</h2></p>
+  <form action=""
+        method="get"
+        class="form-inline">
+    {{ cooks_search_form|crispy }}&nbsp;
+    <input type="submit"
+           class="btn btn-secondary"
+           value="Search">
+  </form>
+  <br>
+  {% if cook_list %}
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>YOE</th>
+      </tr>
+      {% for cook in cook_list %}
+        <tr>
+          <td>{{ cook.id }}</td>
+          <td><a href="{{ cook.get_absolute_url }}">{{ cook.username }} {% if user == cook %} (Me){% endif %}</a></td>
+          <td>{{ cook.first_name }}</td>
+          <td>{{ cook.last_name }}</td>
+          <td>{{ cook.years_of_experience }}</td>
+        </tr>
+      {% endfor %}
+
+    </table>
+  {% else %}
+    <p>There are no cooks in the service.</p>
+  {% endif %}
+{% endblock %}

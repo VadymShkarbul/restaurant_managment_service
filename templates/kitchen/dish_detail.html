@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>
+    {{ dish.name }} ({{ dish.dish_type.name }})
+    {% if dish in user.dishes.all %}
+      <a href="{% url 'kitchen:add_remove_dish' pk=dish.id %}"
+         class="btn btn-outline-danger">
+        Remove from my dishes
+      </a>
+    {% else %}
+      <a href="{% url 'kitchen:add_remove_dish' pk=dish.id %}"
+         class="btn btn-outline-success">
+        Add to my dishes
+      </a>
+    {% endif %}
+  </h2>
+  <p>{{ dish.description }}</p>
+  <h4>
+    Cooks who prepare:
+  </h4>
+  <hr>
+  <ul>
+    {% for cook in dish.cooks.all %}
+      <li>
+        {{ cook.first_name }} {{ cook.last_name }}
+        (<a href="{% url 'kitchen:cook-detail' pk=cook.id %}">{{ cook.username }}</a>)
+      </li>
+    {% endfor %}
+  </ul>
+  <hr>
+  <a href="{% url 'kitchen:dish-update' pk=dish.id %}"
+     class="btn btn-outline-success">Update</a>
+  <a href="{% url 'kitchen:dish-delete' pk=dish.id %}"
+     class="btn btn-outline-danger">Delete</a>
+
+{% endblock %}
