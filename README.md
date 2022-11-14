@@ -4,7 +4,12 @@
 
 # Check it out
 
-### [KMS project deployed to Render](https://restaurant-management-system.onrender.com/main/)
+### [-> KMS project deployed to Render <-](https://restaurant-management-system.onrender.com/main/)
+
+```shell
+login: admin.user
+password: 123admin123
+```
 
 # Installation
 
