@@ -30,7 +30,7 @@ class CookYOEUpdateForm(forms.ModelForm):
 
 
 def validate_years_of_experience(
-        years_of_experience,
+    years_of_experience,
 ):
     if years_of_experience < 0:
         raise ValidationError("Not negative values!")
@@ -56,7 +56,7 @@ class DishForm(forms.ModelForm):
 
 
 def validate_price(
-        price,
+    price,
 ):
     if price < 0:
         raise ValidationError("Not negative values!")
@@ -69,7 +69,7 @@ class DishSearchForm(forms.Form):
         max_length=255,
         required=False,
         label="",
-        widget=forms.TextInput(attrs={"placeholder": "Search dish by name"})
+        widget=forms.TextInput(attrs={"placeholder": "Search dish by name"}),
     )
 
 
@@ -78,7 +78,7 @@ class CookSearchForm(forms.Form):
         max_length=255,
         required=False,
         label="",
-        widget=forms.TextInput(attrs={"placeholder": "Search cook by username"})
+        widget=forms.TextInput(attrs={"placeholder": "Search cook by username"}),
     )
 
 
@@ -87,5 +87,5 @@ class DishTypeSearchForm(forms.Form):
         max_length=255,
         required=False,
         label="",
-        widget=forms.TextInput(attrs={"placeholder": "Search dish type"})
+        widget=forms.TextInput(attrs={"placeholder": "Search dish type"}),
     )

@@ -9,7 +9,10 @@ admin.site.register(DishType)
 @admin.register(Dish)
 class DishAdmin(admin.ModelAdmin):
     search_fields = ("name",)
-    list_filter = ("name", "price",)
+    list_filter = (
+        "name",
+        "price",
+    )
 
 
 @admin.register(Cook)
