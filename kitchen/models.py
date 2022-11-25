@@ -11,10 +11,10 @@ class Cook(AbstractUser):
         verbose_name_plural = "cooks"
         ordering = ["username"]
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.first_name} {self.last_name} ({self.years_of_experience} YOE)"
 
-    def get_absolute_url(self):
+    def get_absolute_url(self) -> str:
         return reverse("kitchen:cook-detail", kwargs={"pk": self.pk})
 
 
@@ -26,10 +26,10 @@ class DishType(models.Model):
         verbose_name_plural = "dishes types"
         ordering = ["name"]
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name
 
-    def get_absolute_url(self):
+    def get_absolute_url(self) -> str:
         return reverse("kitchen:dish-detail", kwargs={"pk": self.pk})
 
 
@@ -45,5 +45,5 @@ class Dish(models.Model):
         verbose_name_plural = "dishes"
         ordering = ["name"]
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.name} ({self.price})"
