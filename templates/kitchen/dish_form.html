@@ -5,7 +5,8 @@
   <h1>{{ object|yesno:"Update,Create" }} dish</h1>
   <form action=""
         method="post"
-        novalidate>
+        novalidate
+        class="col-sm-4">
     {% csrf_token %}
     {{ form|crispy }}
 
