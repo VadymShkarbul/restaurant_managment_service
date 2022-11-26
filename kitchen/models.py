@@ -1,10 +1,17 @@
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.urls import reverse
 
 
 class Cook(AbstractUser):
-    years_of_experience = models.IntegerField(null=True)
+    years_of_experience = models.IntegerField(
+        null=True,
+        validators=[
+            MinValueValidator(0),
+            MaxValueValidator(50)
+        ]
+    )
 
     class Meta:
         verbose_name = "cook"
