@@ -11,14 +11,6 @@ login: admin.user
 password: 123admin123
 ```
 
-### Also, you can check customized admin panel:
-### [-> KMS project admin panel <-](https://restaurant-management-system.onrender.com/admin/)
-Using these credentials:
-```shell
-login: admin
-password: 123admin123
-```
-
 # Installation
 
 ### [Python 3](https://www.python.org/downloads/) must be already installed
